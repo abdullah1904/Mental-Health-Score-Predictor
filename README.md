@@ -1,6 +1,6 @@
-# Mental Health Score Predictor - API
+# Mental Health Score Predictor — API
 
-A FastAPI service that predicts a **Mental Health Score (0-10)** from social
+A FastAPI service that predicts a **Mental Health Score (0–10)** from social
 media usage, sleep, study, and lifestyle habits, using a trained Random
 Forest model.
 
@@ -19,18 +19,18 @@ Model: [abdullah1904/Mental-Health-Score-Predictor](https://huggingface.co/abdul
 ├── main.py       # FastAPI app & /predict route
 ├── models.py     # Pydantic request/response schemas
 ├── utils.py      # model loading helper
-└── Mental_Health_Model.pkl   # trained model (download from HF)
+├── Mental_Health_Model.pkl   # trained model
+├── pyproject.toml
+└── uv.lock
 ```
 
 ## Setup
 
 ```bash
-git clone <your-repo-url>
-cd <repo-folder>
+git clone https://github.com/abdullah1904/Mental-Health-Score-Predictor.git
+cd Mental-Health-Score-Predictor
 uv sync
 ```
-
-Download `Mental_Health_Model.pkl` from the [Hugging Face model page](https://huggingface.co/abdullah1904/Mental-Health-Score-Predictor) and place it in the project root.
 
 ## Run
 
