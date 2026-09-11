@@ -43,14 +43,17 @@ def display_prediction_card(score: float) -> None:
         color = "#dc2626"
         background = "#fef2f2"
         status = "Needs attention"
+        score_range = "Range: 1–5"
     elif score <= 8:
         color = "#ca8a04"
         background = "#fefce8"
         status = "Moderate range"
+        score_range = "Range: 5–8"
     else:
         color = "#16a34a"
         background = "#f0fdf4"
         status = "Healthy range"
+        score_range = "Range: 8–10"
 
     st.markdown(
         f"""
@@ -65,6 +68,7 @@ def display_prediction_card(score: float) -> None:
             <div style="color: {color}; font-size: 1rem; font-weight: 600;">{status}</div>
             <div style="color: {color}; font-size: 3rem; font-weight: 700; line-height: 1.2;">{score:.2f}</div>
             <div style="color: #475569; font-size: 0.95rem;">Mental health score out of 10</div>
+            <div style="color: #64748b; font-size: 0.85rem; margin-top: 0.35rem;">{score_range}</div>
         </div>
         """,
         unsafe_allow_html=True,
