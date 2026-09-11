@@ -1,14 +1,15 @@
-# Mental Health Score Predictor — API
+# Mental Health Score Predictor — Streamlit App
 
-A FastAPI service that predicts a **Mental Health Score (0–10)** from social
-media usage, sleep, study, and lifestyle habits, using a trained Random
+A simple Streamlit app that predicts a **Mental Health Score (0–10)** from
+social media usage, sleep, study, and lifestyle habits, using a trained Random
 Forest model.
 
 Model: [abdullah1904/Mental-Health-Score-Predictor](https://huggingface.co/abdullah1904/Mental-Health-Score-Predictor) on Hugging Face.
 
 ## Features
 
-- FastAPI REST API with request/response validation (Pydantic)
+- Streamlit form for easy predictions
+- Request validation with Pydantic
 - Loads a pre-trained scikit-learn pipeline (`Mental_Health_Model.pkl`)
 - Auto-groups unseen countries into `"Other"` to match training data
 - CORS enabled for frontend integration
@@ -16,7 +17,7 @@ Model: [abdullah1904/Mental-Health-Score-Predictor](https://huggingface.co/abdul
 ## Project Structure
 
 ```bash
-├── main.py       # FastAPI app & /predict route
+├── main.py       # Streamlit app and prediction logic
 ├── models.py     # Pydantic request/response schemas
 ├── utils.py      # model loading helper
 ├── Mental_Health_Model.pkl   # trained model
@@ -35,48 +36,12 @@ uv sync
 ## Run
 
 ```bash
-uv run uvicorn main:app --reload
+uv run streamlit run main.py
 ```
 
-API available at `http://127.0.0.1:8000`
-Interactive docs at `http://127.0.0.1:8000/docs`
+The app opens at `http://localhost:8501`.
 
-## API Reference
-
-### `GET /`
-
-Health check.
-
-```json
-{ "message": "Welcome to the ML model API!" }
-```
-
-### `POST /predict`
-
-**Request body:**
-
-```json
-{
-  "age": 21,
-  "gender": "Male",
-  "country": "Pakistan",
-  "academic_level": "Undergraduate",
-  "most_used_platform": "Instagram",
-  "purpose_of_use": "Entertainment",
-  "avg_daily_usage_hours": 4.5,
-  "daily_unlocks": 140,
-  "study_hours": 4.0,
-  "physical_activity_hours": 2.0,
-  "sleep_hours_per_night": 6.5,
-  "stress_level": "Medium"
-}
-```
-
-**Response:**
-
-```json
-{ "predicted_mental_health_score": 6.82 }
-```
+Fill in the form and click **Predict score** to get a result.
 
 ### Field Constraints
 
